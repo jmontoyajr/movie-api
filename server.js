@@ -16,9 +16,9 @@ http.createServer((request, response) => {
       });
 
       if (q.pathname.includes('documentation')) {
-        filePath = (__dirname + './documentation.html');
+        filePath = (__dirname + '/documentation.html');
       } else {
-        filePath = './index.html';
+        filePath = (__dirname + '/index.html');
       }
 
       fs.readFile(filePath, (err, data) => {
