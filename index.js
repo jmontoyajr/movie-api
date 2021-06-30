@@ -1,50 +1,64 @@
 // Require Express
 const express = require('express');
     morgan = require('morgan');
+    bodyParser = require('body-parser'),
+    uuid = require('uuid');
 
 const app = express();
+
+app.use(bodyParser.json());
 
 // Movie objects
 let topMovies = [
   {
     title: 'The Matrix',
-    director: 'Lana and Lilly Wachowski'
+    director: 'Lana and Lilly Wachowski',
+    genre: 'Action'
   },
   {
     title: 'The Dark Knight',
-    director: 'Christopher Nolan'
+    director: 'Christopher Nolan',
+    genre: 'Action'
   },
   {
     title: 'Jurassic Park',
-    director: 'Steven Spielberg'
+    director: 'Steven Spielberg',
+    genre: 'Blockbuster'
   },
   {
     title: 'Alien',
-    director: 'Ridley Scott'
+    director: 'Ridley Scott',
+    genre: 'Horror'
   },
   {
     title: 'Monsters Inc.',
-    director: 'Pete Docter'
+    director: 'Pete Docter',
+    genre: 'Animated'
   },
   {
     title: 'Terminator 2: Judgment Day',
-    director: 'James Cameron'
+    director: 'James Cameron',
+    genre: 'Action'
   },
   {
     title: 'Big Lebowski',
-    director: 'Coen Brothers'
+    director: 'Coen Brothers',
+    genre: 'Comedy'
   },
   {
     title: 'Shaun of the Dead',
-    director: 'Edgar Wright'
+    director: 'Edgar Wright',
+    genre: 'Horror/Comedy'
   },
   {
     title: 'Spider-Man: Into the Spider-Verse',
-    director: 'Peter Ramsey, Bob Persichetti, Rodney Rothman'
+    director: 'Peter Ramsey, Bob Persichetti, Rodney Rothman',
+    genre: 'Animated'
   },
   {
     title: 'Office Space',
-    director: 'Mike Judge'
+    director: 'Mike Judge',
+    genre: 'Comedy'
   }
 ];
 
@@ -66,6 +80,86 @@ app.get('/', (req, res) => {
 // Displays movie objects
 app.get('/movies', (req, res) => {
   res.json(topMovies);
+});
+
+// Return a list of ALL movies to the user
+app.get('/movies', (req, res) => {
+   res.send('Successful GET request returning data on all the movies');
+ });
+
+// Return data (description, genre, director, image URL, whether it’s featured or not) about a single movie by title to the user
+app.get('/movies/:description/:genre/:director/:image', (req, res) => {
+   res.send('Successful GET request returning data by title');
+ });
+
+// Return data about a genre (description) by name/title (e.g., “Thriller”)
+app.get('/movies/:director/:bio/:birth-year/:death-year', (req, res) => {
+   res.send('Successful GET request returning genre');
+ });
+
+// Adds data for a new user to our list of users
+app.post('/movies', (req, res) => {
+  let newUser = req.body;
+
+  if (!newUser.name) {
+    const message = 'Missing name in request body';
+    res.status(400).send(message);
+  } else {
+    newUser.id = uuid.v4();
+    users.push(newUser);
+    res.status(201).send(newUser);
+  }
+});
+
+// Update the user
+app.put('/movies/:username/:age/:phone', (req, res) => {
+  let user = users.find((user) => {
+      return user.name === req.params.username });
+
+  if (user) {
+    user.age[req.params.age] = parseInt(req.params.phone);
+    res.status(201).send('User ' + req.params.name + ' has a phone # of ' + req.params.phone + ' and is ' + req.params.age);
+    } else {
+      res.status(404).send('User with the name ' + req.params.name + ' was not found.');
+    }
+  });
+
+// Add a movie to favorites
+app.post('/movies/:favorites', (req, res) => {
+    let favorite = req.body;
+    
+    if (!favorite.name) {
+      const message = 'Missing name in request body';
+      res.status(400).send(message);
+    } else {
+      newFavorite.id = uuid.v4();
+      favorite.push(newFavorite);
+      res.status(201).send(newFavorite);
+  }
+});
+    
+// Deletes a movie from favorites
+app.delete('/movies/:favorites', (req, res) => {
+    let favorite = favorite.find((favorite) => {
+        return favorite.id === req.params.id });
+
+    if (favorite) {
+        favorite = favorite.filter((obj) => {
+        return obj.id !== req.params.id });
+        res.status(201).send('Favorite ' + req.params.id + ' was deleted.');
+  }
+});
+    
+// Allow user to deregister
+app.delete('/movies/:username', (req, res) => {
+    let user = user.find((user) => {
+        return user.id === req.params.id });
+
+    if (user) {
+        user = user.filter((obj) => {
+        return obj.id !== req.params.id });
+        res.status(201).send('Favorite ' + req.params.id + ' was deleted.');
+  }
 });
 
 // Error handling
