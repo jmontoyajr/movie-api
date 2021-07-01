@@ -88,24 +88,14 @@ app.get('/movies', (req, res) => {
  });
 
 // Return data (description, genre, director, image URL, whether it’s featured or not) about a single movie by title to the user
-app.get('/movies/:by-title/:title', (req, res) => {
+app.get('/movies/by-title/:title', (req, res) => {
    res.send('Successful GET request returning data by title');
  });
 
 // Return data about a genre (description) by name/title (e.g., “Thriller”)
-app.get('/movies/:by-type/:genre', (req, res) => {
+app.get('/movies/by-type/:genre', (req, res) => {
    res.send('Successful GET request returning genre');
  });
-
-// Test Requests for Postman queries
-app.get('/test/:foo', (req, res) => {
- res.send('Sending Foo: ' + req.params.foo);
-});
-
-app.get('/test/:bar', (req, res) => {
- res.send('Sending Bar: ' + req.params.bar);
-});
-
 
 // Adds data for a new user to our list of users
 app.post('/movies', (req, res) => {
