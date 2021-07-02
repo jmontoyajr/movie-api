@@ -48,7 +48,7 @@ let topMovies = [
   {
     title: 'Shaun of the Dead',
     director: 'Edgar Wright',
-    genre: 'Horror/Comedy'
+    genre: 'Horror Comedy'
   },
   {
     title: 'Spider-Man: Into the Spider-Verse',
@@ -92,75 +92,40 @@ app.get('/movies/by-title/:title', (req, res) => {
    res.send('Successful GET request returning data by title');
  });
 
+app.get('/movies/by-director/:director', (req, res) => {
+   res.send('Successful GET request returning data by director');
+ });
+
 // Return data about a genre (description) by name/title (e.g., “Thriller”)
 app.get('/movies/by-type/:genre', (req, res) => {
    res.send('Successful GET request returning genre');
  });
 
 // Adds data for a new user to our list of users
-app.post('/movies', (req, res) => {
-  let newUser = req.body;
-
-  if (!newUser.name) {
-    const message = 'Missing name in request body';
-    res.status(400).send(message);
-  } else {
-    newUser.id = uuid.v4();
-    users.push(newUser);
-    res.status(201).send(newUser);
-  }
-});
+app.post('/user', (req, res) => {
+    res.send('Successful POST request returning data for new user');
+  });
 
 // Update the user
-app.put('/movies/:username/:age/:phone', (req, res) => {
-  let user = users.find((user) => {
-      return user.name === req.params.username });
-
-  if (user) {
-    user.age[req.params.age] = parseInt(req.params.phone);
-    res.status(201).send('User ' + req.params.name + ' has a phone # of ' + req.params.phone + ' and is ' + req.params.age);
-    } else {
-      res.status(404).send('User with the name ' + req.params.name + ' was not found.');
-    }
+app.put('/user/by-id/update', (req, res) => {
+    res.send('Successful PUT request returning user update');
   });
 
 // Add a movie to favorites
-app.post('/movies/:favorites', (req, res) => {
-    let favorite = req.body;
-    
-    if (!favorite.name) {
-      const message = 'Missing name in request body';
-      res.status(400).send(message);
-    } else {
-      newFavorite.id = uuid.v4();
-      favorite.push(newFavorite);
-      res.status(201).send(newFavorite);
-  }
-});
+app.post('/movies/add-to/favorites', (req, res) => {
+    res.send('Successful POST request returning movies added to favorites');
+  });
     
 // Deletes a movie from favorites
-app.delete('/movies/:favorites', (req, res) => {
-    let favorite = favorite.find((favorite) => {
-        return favorite.id === req.params.id });
-
-    if (favorite) {
-        favorite = favorite.filter((obj) => {
-        return obj.id !== req.params.id });
-        res.status(201).send('Favorite ' + req.params.id + ' was deleted.');
-  }
-});
+app.delete('/movies/delete-from/favorites', (req, res) => {
+    res.send('Successful DELETE request deleting data from favorites');
+  });
     
 // Allow user to deregister
-app.delete('/movies/:username', (req, res) => {
-    let user = user.find((user) => {
-        return user.id === req.params.id });
+app.delete('/user/by-id/delete', (req, res) => {
+    res.send('Successful DELETE request returning deleted user');
+  });
 
-    if (user) {
-        user = user.filter((obj) => {
-        return obj.id !== req.params.id });
-        res.status(201).send('Favorite ' + req.params.id + ' was deleted.');
-  }
-});
 
 // Error handling
 app.use((err, req, res, next) => {

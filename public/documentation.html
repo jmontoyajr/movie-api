@@ -50,33 +50,38 @@
                 <td>GET</td>
             </tr>
             <tr>
+                <td>Return data about a director</td>
+                <td>/movies/by-director/:director</td>
+                <td>GET</td>
+            </tr>
+            <tr>
                 <td>Return data about a genre</td>
                 <td>/movies/by-type/:genre</td>
                 <td>GET</td>
             </tr>
             <tr>
                 <td>Add a user</td>
-                <td>/movies/[USER]</td>
+                <td>/user</td>
                 <td>POST</td>
             </tr>
             <tr>
                 <td>Update a user</td>
-                <td>/movies/:username/:age/:phone</td>
+                <td>/user/by-id/update</td>
                 <td>PUT</td>
             </tr>
             <tr>
                 <td>Add a movie to favorites</td>
-                <td>/movies/[FAVORITES]</td>
+                <td>/movies/add-to/favorites</td>
                 <td>POST</td>
             </tr>
             <tr>
                 <td>Remove a movie from favorites</td>
-                <td>/movies/[FAVORITES]</td>
+                <td>/movies/delete-from/favorites</td>
                 <td>DELETE</td>
             </tr>
             <tr>
                 <td>Allow user to deregister</td>
-                <td>/movies/[USER]</td>
+                <td>/user/by-id/delete</td>
                 <td>DELETE</td>
             </tr>
         </table>
@@ -92,35 +97,39 @@
                 <h4>Endpoint URL<h4>
                     <p>http://localhost:8080/movies</p>
             
-        <h1>GET /movies/:by-title/:title</h1>
+        <h1>GET /movies/by-title/:title</h1>
                 <p>Gets a list of data based on the movie title.</p>
                     <h4>Endpoint URL<h4>
-                        <p>http://localhost:8080/movies/:description/:genre/:director/:image</p>
-        <h1>GET /movies/:by-type/:genre</h1>
+                        <p>http://localhost:8080/movies/by-title/:title</p>
+        <h1>GET /movies/by-director/:director</h1>
+                <p>Return data about a movie based on director.</p>
+                    <h4>Endpoint URL<h4>
+                        <p>http://localhost:8080/movies/by-director/:director</p>
+        <h1>GET /movies/by-type/:genre</h1>
                 <p>Return data about a movie based on genre.</p>
                     <h4>Endpoint URL<h4>
-                        <p>http://localhost:8080/movies/:director/:bio/:birth-year/:death-year</p>
-        <h1>POST /movies/[USER]</h1>
+                        <p>http://localhost:8080/movies/by-type/:genre</p>
+        <h1>POST /user</h1>
                 <p>Add a user.</p>
                     <h4>Endpoint URL<h4>
-                        <p>http://localhost:8080/movies/[USER]</p>
+                        <p>http://localhost:8080/user</p>
                     </div>
-        <h1>PUT /movies/:username/:age/:phone</h1>
+        <h1>PUT /user/by-id/update</h1>
                 <p>Updates user information.</p>
                     <h4>Endpoint URL<h4>
-                        <p>http://localhost:8080/movies/:username/:age/:phone</p>
-        <h1>POST /movies/[FAVORITES]</h1>
+                        <p>http://localhost:8080/user/by-id/update</p>
+        <h1>POST /movies/add-to/favorites</h1>
                 <p>Add a movie to favorites.</p>
                     <h4>Endpoint URL<h4>
-                        <p>http://localhost:8080/movies/[FAVORITES]</p>
-        <h1>DELETE /movies/[FAVORITES]</h1>
+                        <p>http://localhost:8080/movies/add-to/favorites</p>
+        <h1>DELETE /movies/delete-from/favorites</h1>
                 <p>Remove a movie from favorites.</p>
                     <h4>Endpoint URL<h4>
-                        <p>http://localhost:8080/movies/[FAVORITES]</p>
-        <h1>DELETE /movies/[USER]</h1>
+                        <p>http://localhost:8080/movies/delete-from/favorites</p>
+        <h1>DELETE /user/by-id/delete</h1>
                 <p>Allow user to deregister.</p>
                     <h4>Endpoint URL<h4>
-                        <p>http://localhost:8080/movies/[USER]</p>
+                        <p>http://localhost:8080/user/by-id/delete</p>
     </div>
 </body>
 
