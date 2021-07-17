@@ -50,13 +50,33 @@
                 <td>GET</td>
             </tr>
             <tr>
-                <td>Return data about a director</td>
-                <td>/movies/by-director/:director</td>
+                <td>Return data about a director's Name</td>
+                <td>/movies/by-director/:director-name</td>
+                <td>GET</td>
+            </tr>
+            <tr>
+                <td>Return data about a director's Bio</td>
+                <td>/movies/by-director/:director-bio</td>
+                <td>GET</td>
+            </tr>
+            <tr>
+                <td>Return data about a director's Birth year</td>
+                <td>/movies/by-director/:director-birth-year</td>
                 <td>GET</td>
             </tr>
             <tr>
                 <td>Return data about a genre</td>
-                <td>/movies/by-type/:genre</td>
+                <td>/movies/by-type/:genre-name</td>
+                <td>GET</td>
+            </tr>
+            <tr>
+                <td>Return data about a genre description</td>
+                <td>/movies/by-type/:genre-description</td>
+                <td>GET</td>
+            </tr>
+            <tr>
+                <td>Return data about a movie image</td>
+                <td>/movies/by-type/:image-path</td>
                 <td>GET</td>
             </tr>
             <tr>
@@ -99,16 +119,32 @@
             
         <h1>GET /movies/by-title/:title</h1>
                 <p>Gets a list of data based on the movie title.</p>
-                    <h4>Endpoint URL<h4>
+                    <h4>Endpoint URL<h4>    
                         <p>http://localhost:8080/movies/by-title/:title</p>
-        <h1>GET /movies/by-director/:director</h1>
-                <p>Return data about a movie based on director.</p>
+        <h1>GET /movies/by-director/:director-name</h1>
+                <p>Return data about a director's Name.</p>
                     <h4>Endpoint URL<h4>
-                        <p>http://localhost:8080/movies/by-director/:director</p>
-        <h1>GET /movies/by-type/:genre</h1>
-                <p>Return data about a movie based on genre.</p>
+                        <p>http://localhost:8080/movies/by-director/:director-name</p>
+        <h1>GET /movies/by-director/:director-bio</h1>
+                <p>Return data about a director's Bio.</p>
                     <h4>Endpoint URL<h4>
-                        <p>http://localhost:8080/movies/by-type/:genre</p>
+                        <p>http://localhost:8080/movies/by-director/:director-bio</p>
+        <h1>GET /movies/by-director/:director-birth-year</h1>
+                <p>Return data about a director's Birth year.</p>
+                    <h4>Endpoint URL<h4>
+                        <p>http://localhost:8080/movies/by-director/:director-birth-year</p>
+        <h1>GET /movies/by-type/:genre-name</h1>
+                <p>Return data about a movie based on genre name.</p>
+                    <h4>Endpoint URL<h4>
+                        <p>http://localhost:8080/movies/by-type/:genre-name</p>
+        <h1>GET /movies/by-type/:genre-description</h1>
+                <p>Return data about a movie based on genre description.</p>
+                    <h4>Endpoint URL<h4>
+                        <p>http://localhost:8080/movies/by-type/:genre-description</p>
+        <h1>GET /movies/by-type/:image-path</h1>
+                <p>Return data about a movie based on movie image.</p>
+                    <h4>Endpoint URL<h4>
+                        <p>http://localhost:8080/movies/by-type/:image-path</p>
         <h1>POST /user</h1>
                 <p>Add a user.</p>
                     <h4>Endpoint URL<h4>
