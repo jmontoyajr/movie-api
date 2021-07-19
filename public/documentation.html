@@ -46,52 +46,52 @@
             </tr>
             <tr>
                 <td>Return data about a movie by title</td>
-                <td>/movies/by-title/:title</td>
+                <td>/movies/by-title/:Title</td>
                 <td>GET</td>
             </tr>
             <tr>
                 <td>Return data about a director's Name</td>
-                <td>/movies/by-director/:director-name</td>
+                <td>/movies/by-director/:director</td>
                 <td>GET</td>
             </tr>
             <tr>
                 <td>Return data about a director's Bio</td>
-                <td>/movies/by-director/:director-bio</td>
+                <td>/movies/by-bio/:director</td>
                 <td>GET</td>
             </tr>
             <tr>
                 <td>Return data about a director's Birth year</td>
-                <td>/movies/by-director/:director-birth-year</td>
+                <td>/movies/by-birth/:director</td>
                 <td>GET</td>
             </tr>
             <tr>
                 <td>Return data about a genre</td>
-                <td>/movies/by-type/:genre-name</td>
+                <td>/movies/by-type/:genre</td>
                 <td>GET</td>
             </tr>
             <tr>
                 <td>Return data about a genre description</td>
-                <td>/movies/by-type/:genre-description</td>
+                <td>/movies/by-description/:genre</td>
                 <td>GET</td>
             </tr>
             <tr>
                 <td>Return data about a movie image</td>
-                <td>/movies/by-type/:image-path</td>
+                <td>/movies/by-image/:Title</td>
                 <td>GET</td>
             </tr>
             <tr>
                 <td>Add a user</td>
-                <td>/user</td>
+                <td>/users</td>
                 <td>POST</td>
             </tr>
             <tr>
                 <td>Update a user</td>
-                <td>/user/by-id/update</td>
+                <td>/users</td>
                 <td>PUT</td>
             </tr>
             <tr>
                 <td>Add a movie to favorites</td>
-                <td>/movies/add-to/favorites</td>
+                <td>/users/:Username/movies/:MovieID</td>
                 <td>POST</td>
             </tr>
             <tr>
@@ -101,7 +101,7 @@
             </tr>
             <tr>
                 <td>Allow user to deregister</td>
-                <td>/user/by-id/delete</td>
+                <td>/users/:Username</td>
                 <td>DELETE</td>
             </tr>
         </table>
@@ -117,55 +117,55 @@
                 <h4>Endpoint URL<h4>
                     <p>http://localhost:8080/movies</p>
             
-        <h1>GET /movies/by-title/:title</h1>
+        <h1>GET /movies/by-title/:Title</h1>
                 <p>Gets a list of data based on the movie title.</p>
                     <h4>Endpoint URL<h4>    
                         <p>http://localhost:8080/movies/by-title/:title</p>
-        <h1>GET /movies/by-director/:director-name</h1>
+        <h1>GET /movies/by-director/:director</h1>
                 <p>Return data about a director's Name.</p>
                     <h4>Endpoint URL<h4>
-                        <p>http://localhost:8080/movies/by-director/:director-name</p>
-        <h1>GET /movies/by-director/:director-bio</h1>
+                        <p>http://localhost:8080/movies/by-director/:director</p>
+        <h1>GET /movies/by-bio/:director</h1>
                 <p>Return data about a director's Bio.</p>
                     <h4>Endpoint URL<h4>
-                        <p>http://localhost:8080/movies/by-director/:director-bio</p>
-        <h1>GET /movies/by-director/:director-birth-year</h1>
+                        <p>http://localhost:8080/movies/by-bio/:director</p>
+        <h1>GET /movies/by-birth/:director</h1>
                 <p>Return data about a director's Birth year.</p>
                     <h4>Endpoint URL<h4>
-                        <p>http://localhost:8080/movies/by-director/:director-birth-year</p>
-        <h1>GET /movies/by-type/:genre-name</h1>
+                        <p>http://localhost:8080/movies/by-birth/:director</p>
+        <h1>GET /movies/by-type/:genre</h1>
                 <p>Return data about a movie based on genre name.</p>
                     <h4>Endpoint URL<h4>
-                        <p>http://localhost:8080/movies/by-type/:genre-name</p>
-        <h1>GET /movies/by-type/:genre-description</h1>
+                        <p>http://localhost:8080/movies/by-type/:genre</p>
+        <h1>GET /movies/by-description/:genre</h1>
                 <p>Return data about a movie based on genre description.</p>
                     <h4>Endpoint URL<h4>
-                        <p>http://localhost:8080/movies/by-type/:genre-description</p>
-        <h1>GET /movies/by-type/:image-path</h1>
+                        <p>http://localhost:8080/movies/by-description/:genre</p>
+        <h1>GET /movies/by-image/:Title</h1>
                 <p>Return data about a movie based on movie image.</p>
                     <h4>Endpoint URL<h4>
-                        <p>http://localhost:8080/movies/by-type/:image-path</p>
+                        <p>http://localhost:8080/movies/by-image/:Title</p>
         <h1>POST /user</h1>
                 <p>Add a user.</p>
                     <h4>Endpoint URL<h4>
-                        <p>http://localhost:8080/user</p>
+                        <p>http://localhost:8080/users</p>
                     </div>
-        <h1>PUT /user/by-id/update</h1>
+        <h1>PUT /users/:Username</h1>
                 <p>Updates user information.</p>
                     <h4>Endpoint URL<h4>
-                        <p>http://localhost:8080/user/by-id/update</p>
-        <h1>POST /movies/add-to/favorites</h1>
+                        <p>http://localhost:8080/users/:Username</p>
+        <h1>POST /users/:Username/movies/:MovieID</h1>
                 <p>Add a movie to favorites.</p>
                     <h4>Endpoint URL<h4>
-                        <p>http://localhost:8080/movies/add-to/favorites</p>
+                        <p>http://localhost:8080/users/:Username/movies/:MovieID</p>
         <h1>DELETE /movies/delete-from/favorites</h1>
                 <p>Remove a movie from favorites.</p>
                     <h4>Endpoint URL<h4>
-                        <p>http://localhost:8080/movies/delete-from/favorites</p>
-        <h1>DELETE /user/by-id/delete</h1>
+                        <p>http://localhost:8080/users/:Username/movies/:MovieID</p>
+        <h1>DELETE /movies/delete-from/favorites</h1>
                 <p>Allow user to deregister.</p>
                     <h4>Endpoint URL<h4>
-                        <p>http://localhost:8080/user/by-id/delete</p>
+                        <p>http://localhost:8080/movies/delete-from/favorites</p>
     </div>
 </body>
 
