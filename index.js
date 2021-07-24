@@ -7,7 +7,9 @@ const Movies = Models.Movie;
 const Users = Models.User;
 
 // Connect to Mongoose DB
-mongoose.connect('mongodb://localhost:27017/jFlixDB', { useNewUrlParser: true, useUnifiedTopology: true });
+//mongoose.connect('mongodb://localhost:27017/jFlixDB', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect( process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+
 
 // Require Express
 const express = require('express');
