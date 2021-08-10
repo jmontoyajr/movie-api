@@ -76,7 +76,7 @@ app.get("/movies", function (req, res) {
 });
 
 // Get a user by title
-app.get('/movies/by-title/:Title', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.get('/movies/by-title/:Title', (req, res) => {
   Movies.find({ Title: req.params.Title })
     .then((title) => {
       res.json(title);
@@ -88,7 +88,7 @@ app.get('/movies/by-title/:Title', passport.authenticate('jwt', { session: false
 });
 
 // Get movie by director
-app.get('/movies/by-director/:director', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.get('/movies/by-director/:director', (req, res) => {
   Movies.find({ 'Director.Name': req.params.director })
     .then((director) => {
       res.json(director);
@@ -100,7 +100,7 @@ app.get('/movies/by-director/:director', passport.authenticate('jwt', { session:
 });
 
 // Get director bio
-app.get('/movies/by-bio/:director', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.get('/movies/by-bio/:director', (req, res) => {
   Movies.find({ 'Director.Name': req.params.director })
     .then((bio) => {
       res.json(bio);
@@ -112,7 +112,7 @@ app.get('/movies/by-bio/:director', passport.authenticate('jwt', { session: fals
 });
 
 // Get director birth year
-app.get('/movies/by-birth/:director', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.get('/movies/by-birth/:director', (req, res) => {
   Movies.find({ 'Director.Name': req.params.director })
     .then((birth) => {
       res.json(birth);
@@ -124,7 +124,7 @@ app.get('/movies/by-birth/:director', passport.authenticate('jwt', { session: fa
 });
 
 // Return data about a genre
-app.get('/movies/by-type/:genre', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.get('/movies/by-type/:genre', (req, res) => {
   Movies.find({ 'Genre.Name': req.params.genre })
     .then((Genre) => {
       res.json(Genre);
@@ -136,7 +136,7 @@ app.get('/movies/by-type/:genre', passport.authenticate('jwt', { session: false 
 });
 
 // Return data about a genre (description) by name/title (e.g., “Thriller”)
-app.get('/movies/by-description/:genre', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.get('/movies/by-description/:genre', (req, res) => {
   Movies.find({ 'Genre.Name': req.params.genre })
     .then((Genre) => {
       res.json(Genre);
@@ -149,7 +149,7 @@ app.get('/movies/by-description/:genre', passport.authenticate('jwt', { session:
 
 
 // Get a user by Image Path
-app.get('/movies/by-image/:Title', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.get('/movies/by-image/:Title', (req, res) => {
   Movies.find({ Title: req.params.Title })
     .then((title) => {
       res.json(title);
