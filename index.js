@@ -31,7 +31,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const cors = require("cors");
 let allowedOrigins = [
   "http://localhost:8080",
-  "http://myflix-client.surge.sh",
+  "https://myflix-client.surge.sh",
   "http://localhost:1234"
 ];
 
@@ -74,12 +74,12 @@ app.get("/", (req, res) => {
 });
 
 // Return a list of ALL movies to the user
-app.get("/movies", function(req, res) {
+app.get("/movies", function (req, res) {
   Movies.find()
-    .then(function(movies) {
+    .then(function (movies) {
       res.status(201).json(movies);
     })
-    .catch(function(error) {
+    .catch(function (error) {
       console.error(error);
       res.status(500).send("Error: " + error);
     });
