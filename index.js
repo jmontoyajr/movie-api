@@ -74,100 +74,116 @@ app.get("/", (req, res) => {
 });
 
 // Return a list of ALL movies to the user
-app.get("/movies", function (req, res) {
-  Movies.find()
-    .then(function (movies) {
-      res.status(201).json(movies);
-    })
-    .catch(function (error) {
-      console.error(error);
-      res.status(500).send("Error: " + error);
-    });
-});
+app.get("/movies",
+  passport.authenticate('jwt', { session: false }),
+  function (req, res) {
+    Movies.find()
+      .then(function (movies) {
+        res.status(201).json(movies);
+      })
+      .catch(function (error) {
+        console.error(error);
+        res.status(500).send("Error: " + error);
+      });
+  });
 
 // Get a user by title
-app.get("/movies/by-title/:Title", (req, res) => {
-  Movies.find({ Title: req.params.Title })
-    .then(title => {
-      res.json(title);
-    })
-    .catch(err => {
-      console.error(err);
-      res.status(500).send("Error: " + err);
-    });
-});
+app.get("/movies/by-title/:Title",
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    Movies.find({ Title: req.params.Title })
+      .then(title => {
+        res.json(title);
+      })
+      .catch(err => {
+        console.error(err);
+        res.status(500).send("Error: " + err);
+      });
+  });
 
 // Get movie by director
-app.get("/movies/by-director/:director", (req, res) => {
-  Movies.find({ "Director.Name": req.params.director })
-    .then(director => {
-      res.json(director);
-    })
-    .catch(err => {
-      console.error(err);
-      res.status(500).send("Error: " + err);
-    });
-});
+app.get("/movies/by-director/:director",
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    Movies.find({ "Director.Name": req.params.director })
+      .then(director => {
+        res.json(director);
+      })
+      .catch(err => {
+        console.error(err);
+        res.status(500).send("Error: " + err);
+      });
+  });
 
 // Get director bio
-app.get("/movies/by-bio/:director", (req, res) => {
-  Movies.find({ "Director.Name": req.params.director })
-    .then(bio => {
-      res.json(bio);
-    })
-    .catch(err => {
-      console.error(err);
-      res.status(500).send("Error: " + err);
-    });
-});
+app.get("/movies/by-bio/:director",
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    Movies.find({ "Director.Name": req.params.director })
+      .then(bio => {
+        res.json(bio);
+      })
+      .catch(err => {
+        console.error(err);
+        res.status(500).send("Error: " + err);
+      });
+  });
 
 // Get director birth year
-app.get("/movies/by-birth/:director", (req, res) => {
-  Movies.find({ "Director.Name": req.params.director })
-    .then(birth => {
-      res.json(birth);
-    })
-    .catch(err => {
-      console.error(err);
-      res.status(500).send("Error: " + err);
-    });
-});
+app.get("/movies/by-birth/:director",
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    Movies.find({ "Director.Name": req.params.director })
+      .then(birth => {
+        res.json(birth);
+      })
+      .catch(err => {
+        console.error(err);
+        res.status(500).send("Error: " + err);
+      });
+  });
 
 // Return data about a genre
-app.get("/movies/by-type/:genre", (req, res) => {
-  Movies.find({ "Genre.Name": req.params.genre })
-    .then(Genre => {
-      res.json(Genre);
-    })
-    .catch(err => {
-      console.error(err);
-      res.status(500).send("Error: " + err);
-    });
-});
+app.get("/movies/by-type/:genre",
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    Movies.find({ "Genre.Name": req.params.genre })
+      .then(Genre => {
+        res.json(Genre);
+      })
+      .catch(err => {
+        console.error(err);
+        res.status(500).send("Error: " + err);
+      });
+  });
 
 // Return data about a genre (description) by name/title (e.g., “Thriller”)
-app.get("/movies/by-description/:genre", (req, res) => {
-  Movies.find({ "Genre.Name": req.params.genre })
-    .then(Genre => {
-      res.json(Genre);
-    })
-    .catch(err => {
-      console.error(err);
-      res.status(500).send("Error: " + err);
-    });
-});
+app.get("/movies/by-description/:genre",
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    Movies.find({ "Genre.Name": req.params.genre })
+      .then(Genre => {
+        res.json(Genre);
+      })
+      .catch(err => {
+        console.error(err);
+        res.status(500).send("Error: " + err);
+      });
+  });
 
 // Get a user by Image Path
-app.get("/movies/by-image/:Title", (req, res) => {
-  Movies.find({ Title: req.params.Title })
-    .then(title => {
-      res.json(title);
-    })
-    .catch(err => {
-      console.error(err);
-      res.status(500).send("Error: " + err);
-    });
-});
+app.get("/movies/by-image/:Title",
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    Movies.find({ Title: req.params.Title })
+      .then(title => {
+        res.json(title);
+      })
+      .catch(err => {
+        console.error(err);
+        res.status(500).send("Error: " + err);
+      });
+  });
 
 // Get all users
 app.get("/users", (req, res) => {
